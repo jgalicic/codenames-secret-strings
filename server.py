@@ -4,6 +4,7 @@ from mysqlconnection import connectToMySQL
 import random
 
 # Justin just added this comment
+# Now this
 
 app = Flask(__name__)
 app.secret_key = "shh"
