@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request, redirect, session
-from mysqlconnection import connectToMySQL # import the function that will return an instance of a connectioncopy
+# import the function that will return an instance of a connectioncopy
+from mysqlconnection import connectToMySQL
 import random
+
+# Justin just added this comment
 
 app = Flask(__name__)
 app.secret_key = "shh"
@@ -15,7 +18,7 @@ def color_gen():
     black_count = 1
 
     while not done:
-        num = random.randint(1,4)
+        num = random.randint(1, 4)
         if num == 1 and brown_count > 0:
             color_list.append("brown")
             brown_count -= 1
@@ -36,7 +39,8 @@ def color_gen():
     return color_list
 
 
-reg_bank = ['hello', 'trumpet', 'ladybug', 'sponge', 'China', 'cupcake', 'jungle', 'soccer', 'spatula', 'crown', 'farmer', 'clock', 'monster', 'flag', 'garbage', 'pencil']
+reg_bank = ['hello', 'trumpet', 'ladybug', 'sponge', 'China', 'cupcake', 'jungle',
+            'soccer', 'spatula', 'crown', 'farmer', 'clock', 'monster', 'flag', 'garbage', 'pencil']
 color_list = color_gen()
 
 colored_bank = []
@@ -48,18 +52,17 @@ for i in range(16):
 def index():
     return render_template("index.html")
 
+
 @app.route('/gameboard')
 def gameboard():
-    return render_template('gameboard.html', bank = colored_bank)
+    return render_template('gameboard.html', bank=colored_bank)
 
 # @app.route("/party_create", methods = ['POST'])
 # def party_create():
 #     party_data_SQL = connectToMySQL('party_game_db')
-#     query = 
+#     query =
 #     party_data = party_data_SQL.query_db(query, data)
-    
 
 
 if __name__ == "__main__":
     app.run(debug=True)
-
