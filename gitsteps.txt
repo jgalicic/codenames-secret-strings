@@ -1,0 +1,12 @@
+To pull:
+
+$ cd <directory>
+$ git pull https://github.com/jgalicic/codenames-secret-strings.git master
+
+
+To push:
+
+git add .
+git status
+git commit -m "message"
+git push https://github.com/jgalicic/codenames-secret-strings.git master
