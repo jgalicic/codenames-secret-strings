@@ -1,0 +1,62 @@
+body {
+  background-color: #333;
+}
+
+h1 {
+  color: rgb(223, 204, 163);
+  text-align: center;
+}
+
+.card_conainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 700px;
+}
+
+
+.card {
+  margin: 3px;
+  width: 23%;
+  height: 25%;
+  background-size: cover;
+  border: 5px solid #111;
+  border-radius: 3px;
+}
+
+
+div[class_hidden="red"] {
+  background-image: url("../img/red.jpg");
+}
+
+div[class_hidden="blue"] {
+  background-image: url("../img/blue.jpg");
+}
+
+div[class_hidden="brown"] {
+  background-image: url("../img/brown.jpg");
+}
+
+div[class_hidden="black"] {
+  background-image: url("../img/assassin.jpg");
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 900px) {
+  .card_conainer {
+    height: 600px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .card_conainer {
+    height: 450px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .card_conainer {
+    height: 300px;
+  }
+}
