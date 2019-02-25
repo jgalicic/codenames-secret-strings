@@ -1,6 +1,8 @@
 import random
+import time
 
 def color_gen():
+    random.seed(time.clock())
     done = False
     color_list = []
     brown_count = 5
