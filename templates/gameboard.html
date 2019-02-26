@@ -15,7 +15,7 @@
 
 <body>
   <h1>Codenames: Secret Strings</h1>
-  <span id="spy">Spymaster Secret Info: Enter this code [{{session['game_id']}}] at </span><a href="/spymaster">/spymaster</a>
+  <span id="spy">Spymaster Secret Info: Enter this code [{{session['friendly_key']}}] at </span><a href="/spymaster">/spymaster</a>
   <div class="board_container">
     {% for word in bank: %}
     <div class="card_container scene scene--card">
