@@ -1,15 +1,11 @@
-$(document).ready(function(){
+$(document).ready(function () {
 
-  $(".card").click(function(){
-    
-        $(this).slideUp("slow", function(){
-            new_class = $(this).attr('class_hidden');
-            new_class = "card " + new_class;
-            $(this).attr('class', new_class);
-        })
-
-        $(this).slideDown("slow");
-
+  /***** added by Justin on 2/25 @ 9pm */
+  $(".card").click(function () {
+    $(this).toggleClass("is-flipped");
   });
 
+  /***********************************/
+
+  /* End jQuery */
 });

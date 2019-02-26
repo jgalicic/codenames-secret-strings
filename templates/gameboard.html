@@ -9,16 +9,23 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="{{url_for('static', filename='js/script.js')}}" defer></script>
+  <script src="{{url_for('static', filename='js/script.js')}}" defer></script>
   <title>Codenames</title>
 </head>
 
 <body>
   <h1>Codenames: Secret Strings</h1>
-  <span>Spymaster Secret Info: Enter this code [{{session['game_id']}}] at </span><a href="/spymaster">/spymaster</a>
-  <div class="card_conainer">
+  <span id="spy">Spymaster Secret Info: Enter this code [{{session['game_id']}}] at </span><a href="/spymaster">/spymaster</a>
+  <div class="board_container">
     {% for word in bank: %}
-    <div class="card" class_hidden="{{word.color}}">{{word.word}}</div>
+    <div class="card_container scene scene--card">
+      <div class="card">
+        <div class="card_face card_front"><span>{{word.word}}</span></div>
+        <div class="card_face card_back" class_hidden="{{word.color}}">
+          <img src="../static/img/{{word.color}}.jpg">
+        </div>
+      </div>
+    </div>
     {% endfor %}
   </div>
   <button><a href="/reset">RESET</a></button>
