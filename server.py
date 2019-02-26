@@ -1,7 +1,8 @@
+from math import floor
+from random import randint, random
 from flask import Flask, render_template, request, redirect, session
 # import the function that will return an instance of a connectioncopy
 from mysqlconnection import connectToMySQL
-import random
 import time    
 
 
@@ -13,43 +14,31 @@ app.secret_key = "shh"
 
 
 def board_create():
-    def color_gen():
-        done = False
-        color_list = []
-        brown_count = 5
-        red_count = 5
-        blue_count = 5
-        black_count = 1
 
-        while not done:
-            num = random.randint(1, 4)
-            if num == 1 and brown_count > 0:
-                color_list.append("brown")
-                brown_count -= 1
-            if num == 2 and red_count > 0:
-                color_list.append("red")
-                red_count -= 1
-            if num == 3 and blue_count > 0:
-                color_list.append("blue")
-                blue_count -= 1
-            if num == 4 and black_count > 0:
-                color_list.append("black")
-                black_count -= 1
-            if black_count == 0 and red_count == 0 and brown_count == 0 and blue_count == 0:
-                done = True
+    def shuffle(arr):
+        amnt_to_shuffle = len(arr)
+        while amnt_to_shuffle > 1:
+            i = int(floor(random() * amnt_to_shuffle))
+            amnt_to_shuffle -= 1
+            arr[i], arr[amnt_to_shuffle] = arr[amnt_to_shuffle], arr[i]
+        print(arr)
+        return arr
 
-        print(color_list)
-        print(len(color_list))
-        return color_list
+    card_bank = ["red", "red", "red", "red", "red", "blue", "blue", "blue",
+             "blue", "blue", "brown", "brown", "brown", "brown", "brown", "black"]
 
+    word_bank = ['hello', 'trumpet', 'ladybug', 'sponge', 'China', 'cupcake', 'jungle',
+             'soccer', 'spatula', 'crown', 'farmer', 'clock', 'monster', 'flag', 'garbage', 'pencil']
 
-    reg_bank = ['hello', 'trumpet', 'ladybug', 'sponge', 'China', 'cupcake', 'jungle',
-                'soccer', 'spatula', 'crown', 'farmer', 'clock', 'monster', 'flag', 'garbage', 'pencil']
-    color_list = color_gen()
-
+    # clear gameboard
     colored_bank = []
+
+    # shuffle card_bank
+    color_list = shuffle(card_bank)
+
+    # append shuffled card_bank to colored_bank
     for i in range(16):
-        colored_bank.append({'word': reg_bank[i], 'color': color_list[i]})
+        colored_bank.append({'word': word_bank[i], 'color': color_list[i]})
     
     return colored_bank
 
@@ -147,12 +136,6 @@ def gameboard():
 @app.route('/secret')
 def spyboard():
     return render_template('secret.html', bank = session['bank'])
-
-# @app.route("/party_create", methods = ['POST'])
-# def party_create():
-#     party_data_SQL = connectToMySQL('party_game_db')
-#     query =
-#     party_data = party_data_SQL.query_db(query, data)
 
 
 if __name__ == "__main__":
