@@ -52,7 +52,7 @@ def board_create():
 #Generate friendly key function
 def friendly_key_gen(ugly_key):
 
-        alpha = ['a','b','z','v','e','f','g','x','i','j']
+        alpha = ['c','o','d','e','n','a','m','x','s','-']
 
         code = ugly_key.replace(' ', '').replace('-', '').replace(':','')
         alpha_code = ''
