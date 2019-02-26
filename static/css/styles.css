@@ -68,6 +68,14 @@ h1 {
   backface-visibility: hidden;
 }
 
+
+#spy .card_face, #spy .card_front, #spy {
+  color: white;
+  border: none;
+  backface-visibility: visible;
+  background-color: rgba(0,0,0,0);
+}
+
 .card_back {
   transform: rotateY(180deg);
 }
