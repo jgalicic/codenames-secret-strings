@@ -1,31 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!-- <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
-        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-        <script src="https://cdn.rawgit.com/nnattawat/flip/master/dist/jquery.flip.min.js"></script>
-        <script src="{{url_for('static', filename='js/script.js')}}" defer></script>
-        <title>Codenames</title>
-    </head>
-    <body>
-        <h1>Codenames: Secret Strings</h1>
-        <div style = "width: 100%;">
-            {% for word in bank: %}
-            <div class="card">
-                <div class="front"> 
-                    {{word.word}}
-                </div> 
-                <div class="back">
-                    <img src="{{url_for('static', filename='img/{{word.color}}.jpg')}}" alt="{{word.color}} card">
-                </div> 
-            </div>
-            {% endfor %}
-        </div>
-    </body> -->
 
 <head>
   <meta charset="UTF-8">
@@ -34,17 +8,27 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="{{url_for('static', filename='js/script.js')}}" defer></script>
   <title>Codenames</title>
 </head>
 
 <body>
   <h1>Codenames: Secret Strings</h1>
-  <div class="card_conainer">
+  <div class="board_container">
     {% for word in bank: %}
-    <div class="card" class_hidden="{{word.color}}">{{word.word}}</div>
+    <div class="card_container scene scene--card">
+      <div class="card">
+        <div class="card_face card_front"><span>{{word.word}}</span></div>
+        <div class="card_face card_back" class_hidden="{{word.color}}">
+          <img src="../static/img/{{word.color}}.jpg">
+        </div>
+      </div>
+    </div>
     {% endfor %}
   </div>
-</body>
+
+
 
 </html>
 <!DOCTYPE html>
