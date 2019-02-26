@@ -24,8 +24,28 @@ h1 {
   border-radius: 3px;
 }
 
+#spy {
+  color: white;
+  font-size: 12pt;
+  font-weight: bold;
+}
 
-div[class_hidden="red"] {
+.red {
+  background-image: url("../img/red.jpg");
+}
+
+.blue {
+  background-image: url("../img/blue.jpg");
+}
+
+.brown {
+  background-image: url("../img/brown.jpg");
+}
+
+.black {
+  background-image: url("../img/black.jpg");
+
+/* div[class_hidden="red"] {
   background-image: url("../img/red.jpg");
 }
 
@@ -38,7 +58,7 @@ div[class_hidden="brown"] {
 }
 
 div[class_hidden="black"] {
-  background-image: url("../img/assassin.jpg");
+  background-image: url("../img/assassin.jpg"); */
 }
 
 /* Media Queries */
