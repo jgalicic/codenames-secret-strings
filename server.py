@@ -145,6 +145,5 @@ def spyboard():
     return render_template('secret.html', bank = session['bank'])
 
 
-
 if __name__ == "__main__":
     app.run(debug=True)
