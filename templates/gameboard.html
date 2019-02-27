@@ -6,13 +6,13 @@
 {% block body %}
 
 
-<h1>Codenames: Secret Strings</h1>
+
 <span id="spy">Spymaster Secret Info: Enter this code [{{session['friendly_key']}}] at </span><a
   href="/spymaster">/spymaster</a>
 <div class="board_container">
   {% for word in bank: %}
   <div class="card_container scene scene--card">
-    <div class="card">
+    <div class="card card_to_flip">
       <div class="card_face card_front"><span>{{word.word}}</span></div>
       <div class="card_face card_back" class_hidden="{{word.color}}">
         <img src="../static/img/{{word.color}}.jpg">
