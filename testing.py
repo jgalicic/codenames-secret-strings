@@ -30,6 +30,29 @@ def color_gen():
     print(color_list)
     print(len(color_list))
     return color_list
-print(color_gen())
+# print(color_gen())
 
+alpha = ['a','b','z','v','e','f','g','x','i','j']
+
+test_date = time.strftime('%Y-%m-%d %H:%M:%S')
+
+code = test_date.replace(' ', '').replace('-', '').replace(':','')
+alpha_code = ''
+
+for i in range(6,len(code)):
+    num = int(code[i])
+    alpha_code += alpha[num]
+
+print(test_date)
+print(code)
+print(alpha_code)
+
+decode = ''
+for letter in alpha_code:
+    for idx in range(len(alpha)):
+        if alpha[idx] == letter:
+            decode += str(idx)
+decode = int(decode)
+
+print(decode)
 #test comment

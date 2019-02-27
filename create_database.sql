@@ -17,6 +17,8 @@ USE `codenames_db` ;
 -- -----------------------------------------------------
 -- Table `codenames_db`.`colors`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `codenames_db`.`colors` ;
+
 CREATE TABLE IF NOT EXISTS `codenames_db`.`colors` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `color` VARCHAR(45) NULL,
@@ -27,6 +29,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `codenames_db`.`words`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `codenames_db`.`words` ;
+
 CREATE TABLE IF NOT EXISTS `codenames_db`.`words` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `word` VARCHAR(45) NULL,
@@ -37,11 +41,15 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `codenames_db`.`cards`
 -- -----------------------------------------------------
+DROP TABLE IF EXISTS `codenames_db`.`cards` ;
+
 CREATE TABLE IF NOT EXISTS `codenames_db`.`cards` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `color_id` INT NOT NULL,
   `word_id` INT NOT NULL,
   `game_id` DATETIME NULL,
+  `friendly_key` VARCHAR(45) NULL,
+  `is_flipped` VARCHAR(45) NULL DEFAULT 'False',
   INDEX `fk_cards_colors_idx` (`color_id` ASC) VISIBLE,
   INDEX `fk_cards_words1_idx` (`word_id` ASC) VISIBLE,
   PRIMARY KEY (`id`),

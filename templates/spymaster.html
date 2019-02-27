@@ -14,11 +14,19 @@
 
 <body>
   <h1>Codenames: Secret Strings</h1>
-  <h3>Game Key for spymaster:</h3>
-  <form action="/spymaster" method="post">
+  <h3 id="spy">Spymaster Answer Key:</h3>
+  <form action="/spymaster" method="post" id="spy">
     <label for="game_key">Enter game key here:</label>
     <input type="text" name="game_key">
+    <input type="submit" value="SUBMIT">
   </form>
+  {% with errors = get_flashed_messages(category_filter=['spy_error']) %}
+  {% if errors %}
+      {% for error in errors %}            <!-- loop through the messages -->
+        <p style="color:red;">{{error}}</p>                   <!-- display each message in a paragraph tag -->
+      {% endfor %}
+  {% endif %}
+  {% endwith %}
 </body>
 
 </html>
