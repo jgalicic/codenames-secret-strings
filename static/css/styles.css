@@ -249,6 +249,68 @@ h2 .brace {
   transform: rotateY(180deg);
 }
 
+
+/* WIN SCREEN STLYES */
+
+.red_bg {
+  background:
+  repeating-radial-gradient(circle, 
+  rgba(207, 171, 198, 0.03) 10px, 
+  rgba(207, 171, 198, 0.03) 45px,
+  rgba(218, 187, 187, 0.15) 60px, 
+  rgba(218, 187, 187, 0.15) 70px, 
+   rgba(207, 171, 198, 0.03) 85px),
+   repeating-radial-gradient(circle, 
+   rgb(255, 51, 0),
+   rgb(59, 0, 0)
+   );
+}
+
+.blue_bg {
+  background:
+  repeating-radial-gradient(circle, 
+  rgba(207, 171, 198, 0.03) 10px, 
+  rgba(207, 171, 198, 0.03) 45px,
+  rgba(218, 187, 187, 0.15) 60px, 
+  rgba(218, 187, 187, 0.15) 70px, 
+   rgba(207, 171, 198, 0.03) 85px),
+   repeating-radial-gradient(circle, 
+   rgb(11, 11, 255),
+   rgb(7, 1, 87)
+   );
+}
+
+.bg_layer1{
+  width: 100%;
+  height: 100vh;
+  text-align: center;
+}
+
+.bg_layer1 h1{
+  padding-top: 20vh;
+  letter-spacing: 1vw;
+  color: white;
+  text-shadow: 2px 2px 35px rgba(0,0,0,.7);
+  font-size: 8.5vw;
+  font-family: 'Lalezar', cursive;
+}
+
+.bg_layer1 button:first-of-type{
+  margin-right: 3vw;
+}
+
+.bg_layer1 button, .bg_layer1 a{
+  letter-spacing: 0.2vw; 
+  border: none;
+  border-radius: 5px;
+  background-color: black;
+  color: white;
+  width: 18vw;
+  font-weight: bold;
+  font-size: 3.5vw;
+}
+
+
 /* Media Queries */
 
 @media only screen and (max-width: 900px) {
@@ -273,6 +335,10 @@ h2 .brace {
     height: 16%;
   }
   
+  .card_back img {
+    min-height: 100px !important;
+  }
+
   .card_front {
     height: 100px !important;
   }
