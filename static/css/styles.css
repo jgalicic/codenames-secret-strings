@@ -3,15 +3,78 @@ body {
   font-family: Courier, monospace;
 }
 
+/*************************/
+/****** Index Page *******/
+/*************************/
+
+.index_page1 {
+  display: block;
+  width: 100%;
+  height: 100vh;
+  background: radial-gradient(circle, 
+  rgb(207, 174, 28),
+  rgb(85, 0, 65)
+  );
+}
+
+.index_page2 {
+  display: block;
+  width: 100%;
+  height: 100vh;
+  background: repeating-radial-gradient(circle, 
+  rgba(207, 171, 198, 0.03) 10px, 
+  rgba(207, 171, 198, 0.03) 45px,
+  rgba(218, 187, 187, 0.15) 60px, 
+  rgba(218, 187, 187, 0.15) 70px, 
+   rgba(207, 171, 198, 0.03) 85px);
+}
+
+#index_title {
+  color: rgba(255,255,255,.8);
+  font-family: 'Lalezar', cursive;
+  text-align: center;
+  padding-top: 100px;
+  font-size: 8em;
+  letter-spacing: 8px;
+  text-shadow: 2px 2px 35px rgba(0,0,0,.7)
+}
+
+.index_buttons {
+  display: block;
+  width: 25%;
+  min-width: 200px;
+  color: rgba(0,0,0,0);
+  margin: 20px auto;
+  justify-content: space-between;
+  display: flex;
+}
+
+.index_buttons button {
+  background-color: rgb(8, 8, 8);
+  width: 47%;
+  min-width: 95px;
+  height: 44px;
+  border: none;
+  border-radius: 5px;
+}
+
+.index_buttons button a {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: rgb(211, 164, 11);
+}
 
 /*************************/
 /***** Top Nav Bar *******/
 /*************************/
 
-
+#counter {
+  position: relative;
+  top: 16px;
+  left: 4px;
+}
 
 .top_bar1 {
-  
   display: block;
   width: 100%;
   margin: 0 auto;
@@ -20,7 +83,20 @@ body {
   rgb(207, 174, 28),
   rgb(88, 13, 70)
   );
-  
+}
+
+.blue {
+  background: repeating-radial-gradient(circle, 
+  rgb(11, 11, 255),
+  rgb(7, 1, 87)
+  );
+}
+
+.red {
+  background: repeating-radial-gradient(circle, 
+  rgb(255, 51, 0),
+  rgb(59, 0, 0)
+  );
 }
 
 .top_bar2 {
@@ -51,7 +127,7 @@ body {
 h2 {
   color: white;
   text-align: center;
-  font-size: 2em;
+  font-size: 3em;
   text-shadow: 2px 2px 10px rgba(0,0,0,.3)
 }
 
@@ -71,12 +147,7 @@ h2 .brace {
   top: 2px;
 }
 
-
-
-
 /*************************/
-
-
 
 .board_container {
   display: flex;
@@ -158,19 +229,29 @@ h2 .brace {
 /* Media Queries */
 
 @media only screen and (max-width: 900px) {
-  .card_conainer {
+  .card_container {
     height: 600px;
   }
 }
 
 @media only screen and (max-width: 800px) {
-  .card_conainer {
+  #index_title {
+    font-size: 5em;
+  }
+  h2 {
+    margin-top: 10px;
+    font-size: 2em;
+  }
+  .card_container {
     height: 450px;
   }
 }
 
 @media only screen and (max-width: 700px) {
-  .card_conainer {
+  #index_title {
+    font-size: 4em;
+  }
+  .card_container {
     height: 300px;
   }
 }
