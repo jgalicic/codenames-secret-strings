@@ -17,7 +17,7 @@ word_bank = ['JET', 'ALIEN', 'BOMB', 'SNOWMAN', 'TEACHER', 'DWARF', 'TRIP', 'SAT
              'GENIUS', 'PRINCESS', 'MINT', 'NIGHT', 'RACKET', 'SPY', 'CAST', 'TOWER', 'STATE',
              'BED', 'CARROT', 'OPERA', 'TICK', 'DISEASE', 'FLY', 'AFRICA', 'SWING', 'LINK',
              'MAIL', 'CRASH', 'FORK', 'COOK', 'AZTEC', 'ANGEL', 'ORANGE', 'LAWYER', 'LOG',
-             'RABBIT', 'POLE', 'ENGLAND', 'HAND', 'DAMCE', 'TAIL', 'GERMANY', 'MAPLE', 'SPIDER',
+             'RABBIT', 'POLE', 'ENGLAND', 'HAND', 'DANCE', 'TAIL', 'GERMANY', 'MAPLE', 'SPIDER',
              'OIL', 'TEMPLE', 'APPLE', 'ROOT', 'PENGUIN', 'FILE', 'PAN', 'PUPIL', 'BUFFALO',
              'SOLDIER', 'BARK', 'CHINA', 'SHOE', 'STAFF', 'SPIKE', 'SERVER', 'NAIL', 'SOUND',
              'WELL', 'TAP', 'CYCLE', 'BAR', 'BOND', 'PLOT', 'DECK', 'BERRY', 'THIEF', 'BOLT',
