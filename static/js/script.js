@@ -87,23 +87,24 @@ FUNCTIONS
 
  function checkWin(red_count, blue_count, black_count){
     if (red_count == 5) {
-        setTimeout(function () { win("Red") }, 3000);
+        setTimeout(function () { win("red") }, 3000);
       }
       if (blue_count == 5) {
-        setTimeout(function () { win("Blue") }, 3000);
+        setTimeout(function () { win("blue") }, 3000);
       }
       if (black_count == 1) {
         if (team_blue == false) {
-          setTimeout(function () { win("Blue") }, 3000);
+          setTimeout(function () { win("blue") }, 3000);
         }
         if (team_blue == true) {
-          setTimeout(function () { win("Red") }, 3000);
+          setTimeout(function () { win("red") }, 3000);
         }
       }
  }
 
  function win(color) {
-    $(".board_container").html("<h3 style='color: white;'> Team " + color + " won!</h3>");
+    // $(".board_container").html("<h3 style='color: white;'> Team " + color + " won!</h3>");
+    window.location.replace('/win/'+ color);
   }
 
 function teamBannerToggle(team_blue){
