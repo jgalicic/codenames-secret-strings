@@ -2,7 +2,7 @@ var red_count = 0
 var blue_count = 0
 var black_count = 0
 
-var team_blue = true //for testing only, DELETE LATER
+var team_blue = true
 
 $(document).ready(function () {
 
