@@ -206,20 +206,17 @@ h2 .brace {
 }
 
 .card_front {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   color: #333;
   text-align: center;
   font-weight: bold;
-  font-size: 48px;
-  font-size: 4.70vw;
+  font-size: 4.5vw;
   height: 140px !important;
   background-color: rgb(245, 241, 235);
   border: 4px solid black;
   border-radius: 5px;
-}
-
-.card_front span {
-  position: relative;
-  top: 30px;
 }
 
 .card_back img {
@@ -255,7 +252,7 @@ h2 .brace {
 /* Media Queries */
 
 @media only screen and (max-width: 900px) {
-  .card_container {
+  .board_container {
     height: 600px;
   }
 }
@@ -264,20 +261,44 @@ h2 .brace {
   #index_title {
     font-size: 5em;
   }
+  
   h2 {
     margin-top: 10px;
     font-size: 2em;
   }
+
   .card_container {
-    height: 450px;
+    margin: 2px;
+    width: 23%;
+    height: 16%;
+  }
+  
+  .card_front {
+    height: 100px !important;
   }
 }
 
 @media only screen and (max-width: 700px) {
+  #counter {
+    font-size: 4em;
+    margin-top: -5px;
+  }
+
+  .button_top_layer {
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .right_button_group {
+    position: relative;
+    top: 16px;
+  }
+  .right_button_group i {
+    padding: 0 20px;
+    font-size: 5vw;
+  }
+
   #index_title {
     font-size: 4em;
-  }
-  .card_container {
-    height: 300px;
   }
 }
