@@ -49,19 +49,21 @@ def board_create():
 
     return colored_bank
 
-#Generate friendly key function
+# Generate friendly key function
+
+
 def friendly_key_gen(ugly_key):
 
-        alpha = ['c','o','d','e','n','a','m','x','s','-']
+    alpha = ['c', 'o', 'd', 'e', 'n', 'a', 'm', 'x', 's', '-']
 
-        code = ugly_key.replace(' ', '').replace('-', '').replace(':','')
-        alpha_code = ''
+    code = ugly_key.replace(' ', '').replace('-', '').replace(':', '')
+    alpha_code = ''
 
-        for i in range(6,len(code)):
-            num = int(code[i])
-            alpha_code += alpha[num]
+    for i in range(6, len(code)):
+        num = int(code[i])
+        alpha_code += alpha[num]
 
-        return alpha_code
+    return alpha_code
 
 ####################################
 ############# Routes ###############
@@ -119,7 +121,7 @@ def reset():
             'color_id': color_id,
             'word_id': word_id,
             'game_id': game_id,
-            'friendly_key' : friendly_key
+            'friendly_key': friendly_key
         }
 
         mysql = connectToMySQL('codenames_db')
@@ -175,5 +177,6 @@ def spyboard():
         return redirect('/spymaster')
     return render_template('secret.html', bank=session['bank'])
 
+
 if __name__ == "__main__":
-    app.run(debug=True, host = '0.0.0.0', port = 6969)
+    app.run(debug=True)
