@@ -75,6 +75,11 @@ def friendly_key_gen(ugly_key):
 def index():
     return render_template("index.html")
 
+# GET "/setup/1"
+@app.route("/setup/1")
+def setup1():
+    return render_template("setup1.html")
+
 # GET "/reset"
 @app.route('/reset')
 def reset():
@@ -177,9 +182,11 @@ def spyboard():
         return redirect('/spymaster')
     return render_template('secret.html', bank=session['bank'])
 
+
 @app.route('/win/<team>')
 def win(team):
-    return render_template('win.html', team = team)
+    return render_template('win.html', team=team)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Lalezar" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+  <title>Codenames</title>
+</head>
+
+<body class="index_page1 setup_page1">
+  <div class="index_page2 setup_page2">
+    <div class="setup_container">
+      <h1 id="setup_title">CODENAMES</h1>
+      <h3 id="sub_title"> is a party game for 4+ players.</h3>
+      <br>
+
+      <div class="instruction_container">
+        <div>
+          <h2><strong>TO PLAY:</strong></h2>
+          <h3>1. DIVIDE into <strong class="t_red">TEAM RED</strong> and <strong class="t_blue">TEAM
+              BLUE</strong> </h3>
+          <h3>2. SELECT <strong class="t_black">one spymaster</strong> from each team</h3>
+          <h3>3. SPYMASTERS - on your phone, go to:</h3>
+          <h3 class="url" style="text-align: center;"> http://codenamesgame.io/spy</h3>
+          <h3 style="text-align: center;"> and enter this code: {{session['friendly_key']}}</h3>
+        </div>
+
+      </div>
+      <div class="index_buttons">
+        <a href="/gameboard">PLAY!</a>
+        <a href="/">BACK</a>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
+<!DOCTYPE html>
