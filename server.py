@@ -151,8 +151,7 @@ def secret():
         try:
             # testing if anything is inside "game_info", in otherwords, was the query successful
             print(game_info[0])
-            if 'bank' not in session:
-                session['bank'] = game_info
+            session['bank'] = game_info
 
             return redirect('/secret')
         except:
@@ -177,4 +176,4 @@ def spyboard():
     return render_template('secret.html', bank=session['bank'])
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host = '0.0.0.0', port = 6969)

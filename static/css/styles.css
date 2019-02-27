@@ -135,6 +135,10 @@ h2 .brace {
   font-size: 1.2em;
 }
 
+#team{
+  position: absolute;
+}
+
 .left_brace {
   position: relative;
   left: 15px;
@@ -185,6 +189,7 @@ h2 .brace {
   text-align: center;
   font-weight: bold;
   font-size: 48px;
+  font-size: 4.70vw;
   height: 140px !important;
   background-color: rgb(245, 241, 235);
   border: 4px solid black;
