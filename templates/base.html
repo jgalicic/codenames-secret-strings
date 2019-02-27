@@ -7,6 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link href="https://fonts.googleapis.com/css?family=Lalezar" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
@@ -22,7 +24,19 @@
       <div class="game_title">
         <h1 id="counter">CODENAMES</h1>
         <div id="team"></div>
-        <h2><span class="brace left_brace">{</span>{{"{Secret Strings}"}}<span class="brace right_brace">}</span></h2>
+      </div>
+      <div class="button_top_layer">
+        <div class="left_button_group">
+          <!-- <a href="/reset">RESET</a>
+          <a href="/"><i class="fas fa-home"></i></a>
+          <a href="/instructions">RULES</a> -->
+        </div>
+        <div class="right_button_group">
+          <a href="/reset"><i class="fas fa-redo"></i></a>
+          <a href="/"><i class="fas fa-home"></i></a>
+          <a href="/instructions"><i class="far fa-question-circle"></i></a>
+        </div>
+
       </div>
     </div>
   </div>

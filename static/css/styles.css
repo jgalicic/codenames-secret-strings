@@ -64,6 +64,18 @@ body {
   color: rgb(211, 164, 11);
 }
 
+.left_brace {
+  position: relative;
+  left: 15px;
+  top: 2px;
+}
+
+.right_brace {
+  position: relative;
+  right: 15px;
+  top: 2px;
+}
+
 /*************************/
 /***** Top Nav Bar *******/
 /*************************/
@@ -139,17 +151,26 @@ h2 .brace {
   position: absolute;
 }
 
-.left_brace {
+.button_top_layer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 5;
+  height: 100%;
   position: relative;
-  left: 15px;
-  top: 2px;
+  bottom: 68px;
+  padding: 0 20px;
 }
 
-.right_brace {
-  position: relative;
-  right: 15px;
-  top: 2px;
+.button_top_layer i {
+  color: rgba(255,255,255,.8);
+  font-size: 2em;
+  padding: 10px;
 }
+
+
+
+
 
 /*************************/
 
