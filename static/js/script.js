@@ -1,8 +1,9 @@
-var red_count = 0
-var blue_count = 0
-var black_count = 0
+var red_count = 0;
+var blue_count = 0;
+var black_count = 0;
 
-var team_blue = true
+var team_blue = true;
+var lock_out = true;
 
 $(document).ready(function () {
 
@@ -12,11 +13,12 @@ $(document).ready(function () {
 
   $(".card_to_flip").click(function () {
     // Prevent function from running if card has already been flipped
-    if (!$(this).hasClass("is-flipped")) {
+    if (!$(this).hasClass("is-flipped") && lock_out == false ) {
+        lock_out = true;
 
       $(this).addClass("is-flipped");
       flipped_cards = $(".is-flipped").toArray();
-      setTimeout(function () { startTimer(60); }, 3000);
+      setTimeout(function () { startTimer(60); }, 2500);
 
       // Counting teams' card selections
       var card_color = $(this).find(".card_back").attr("class_hidden");
@@ -36,7 +38,6 @@ $(document).ready(function () {
     timer = setInterval(function () {
       if (count == 0) {
         $("#counter").html(count);
-
         flipRandomCard(all_cards, flipped_cards);
 
       } else if (buffer_count - count == 2) {
@@ -48,6 +49,7 @@ $(document).ready(function () {
       } else if (buffer_count - count == 0) {
         buffer_count--;
         $("#counter").html("Go!");
+        lock_out = false;
       } else {
         buffer_count = 0;
         $("#counter").html(count--)
@@ -63,7 +65,7 @@ $(document).ready(function () {
     // Clear timer when a new card is clicked
     $(".card_to_flip").click(function () {
       // Prevent function from executing if card is already flipped
-      if (!$(this).hasClass("is-flipped")) {
+      if (!$(this).hasClass("is-flipped") && lock_out == false ) {
         clearInterval(timer);
       }
     });
@@ -87,17 +89,17 @@ FUNCTIONS
 
  function checkWin(red_count, blue_count, black_count){
     if (red_count == 5) {
-        setTimeout(function () { win("red") }, 3000);
+        setTimeout(function () { win("red") }, 2000);
       }
       if (blue_count == 5) {
-        setTimeout(function () { win("blue") }, 3000);
+        setTimeout(function () { win("blue") }, 2000);
       }
       if (black_count == 1) {
         if (team_blue == false) {
-          setTimeout(function () { win("blue") }, 3000);
+          setTimeout(function () { win("blue") }, 2000);
         }
         if (team_blue == true) {
-          setTimeout(function () { win("red") }, 3000);
+          setTimeout(function () { win("red") }, 2000);
         }
       }
  }
