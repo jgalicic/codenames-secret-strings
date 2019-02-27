@@ -89,10 +89,18 @@ $(document).ready(function () {
         buffer_count = 0;
         $("#counter").html(count--)
       };
-      if (count == -1) clearInterval(timer);
+      if (count == -1) {
+
+        clearInterval(timer);
+      }
     }, 1000);
+
+    // Clear timer when a new card is clicked
     $(".card_to_flip").click(function () {
-      clearInterval(timer);
+      // Prevent function from executing if card is already flipped
+      if (!$(this).hasClass("is-flipped")) {
+        clearInterval(timer);
+      }
     });
 
     if (team_blue) {
