@@ -26,7 +26,7 @@ def shuffle(arr):
     while amnt_to_shuffle > 1:
         i = int(floor(random() * amnt_to_shuffle))
         amnt_to_shuffle -= 1
-        arr[i], arr[amnt_to_shuffle] = arr[amnt_to_shuffle].upper(), arr[i]
+        arr[i], arr[amnt_to_shuffle] = arr[amnt_to_shuffle], arr[i]
     print(arr)
     return arr
 
