@@ -14,11 +14,11 @@ $(document).ready(function () {
   $(".card_to_flip").click(function () {
     // Prevent function from running if card has already been flipped
     if (!$(this).hasClass("is-flipped") && lock_out == false ) {
-        lock_out = true;
+        // lock_out = true;
 
       $(this).addClass("is-flipped");
       flipped_cards = $(".is-flipped").toArray();
-      setTimeout(function () { startTimer(60); }, 2500);
+    //   setTimeout(function () { startTimer(60); }, 2500);
 
       // Counting teams' card selections
       var card_color = $(this).find(".card_back").attr("class_hidden");
@@ -28,6 +28,12 @@ $(document).ready(function () {
     }
   });
 
+  $("#end_turn").click(function(){
+      if (lock_out == false){
+        lock_out = true;
+        setTimeout(function () { startTimer(60); }, 1000);
+      }
+  });
 
 
   function startTimer(count) {
@@ -63,11 +69,13 @@ $(document).ready(function () {
     }, 1000);
 
     // Clear timer when a new card is clicked
-    $(".card_to_flip").click(function () {
+    $("#end_turn").click(function () {
       // Prevent function from executing if card is already flipped
-      if (!$(this).hasClass("is-flipped") && lock_out == false ) {
-        clearInterval(timer);
-      }
+    //   if (!$(this).hasClass("is-flipped") && lock_out == false ) {
+        if (lock_out == false){
+            clearInterval(timer);
+        }
+    //   }
     });
     
   }
@@ -85,21 +93,22 @@ FUNCTIONS
       random_card = available_cards[Math.floor(Math.random() * available_cards.length)];
 
       $(random_card).click();
+      $('#end_turn').click();
  }
 
  function checkWin(red_count, blue_count, black_count){
     if (red_count == 5) {
-        setTimeout(function () { win("red") }, 2000);
+        setTimeout(function () { win("red") }, 900);
       }
       if (blue_count == 5) {
-        setTimeout(function () { win("blue") }, 2000);
+        setTimeout(function () { win("blue") }, 900);
       }
       if (black_count == 1) {
         if (team_blue == false) {
-          setTimeout(function () { win("blue") }, 2000);
+          setTimeout(function () { win("blue") }, 500);
         }
         if (team_blue == true) {
-          setTimeout(function () { win("red") }, 2000);
+          setTimeout(function () { win("red") }, 500);
         }
       }
  }
@@ -124,12 +133,21 @@ function countCardColors(card_color){
     card_color = card_color.toUpperCase();
       if (card_color == 'RED') {
         ++red_count;
+        if(team_blue){
+            $('#end_turn').click();
+        }
       }
-      if (card_color == 'BLUE') {
+      else if (card_color == 'BLUE') {
         ++blue_count;
+        if(!team_blue){
+            $('#end_turn').click();
+        }
       }
-      if (card_color == 'BLACK') {
+      else if (card_color == 'BLACK') {
         ++black_count;
+      }
+      else{
+        $('#end_turn').click();
       }
 }
 

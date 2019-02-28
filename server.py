@@ -136,12 +136,12 @@ def reset():
     session['game_id'] = game_id
     session['friendly_key'] = friendly_key
 
-    return redirect('/gameboard')
+    return redirect('/setup/1')
 
 
-@app.route('/spymaster', methods=['POST', 'GET'])
+@app.route('/spy', methods=['POST', 'GET'])
 def secret():
-    # POST "/spymaster"
+    # POST "/spy"
     if request.method == 'POST':
 
         data = {
@@ -163,7 +163,7 @@ def secret():
             return redirect('/secret')
         except:
             flash("Error: Incorrect Spymaster key", "spy_error")
-            return redirect('/spymaster')
+            return redirect('/spy')
     # GET "/spymaster"
     else:
         return render_template('/spymaster.html')
