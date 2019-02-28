@@ -18,12 +18,12 @@ $(document).ready(function () {
 
   $(".card_to_flip").click(function () {
     // Prevent function from running if card has already been flipped
-    if (!$(this).hasClass("is-flipped") && lock_out == false ) {
-        // lock_out = true;
+    if (!$(this).hasClass("is-flipped") && lock_out == false) {
+      // lock_out = true;
 
       $(this).addClass("is-flipped");
       flipped_cards = $(".is-flipped").toArray();
-    //   setTimeout(function () { startTimer(60); }, 2500);
+      //   setTimeout(function () { startTimer(60); }, 2500);
 
       // Counting teams' card selections
       var card_color = $(this).find(".card_back").attr("class_hidden");
@@ -33,11 +33,11 @@ $(document).ready(function () {
     }
   });
 
-  $("#end_turn").click(function(){
-      if (lock_out == false){
-        lock_out = true;
-        setTimeout(function () { startTimer(60); }, 1000);
-      }
+  $("#end_turn").click(function () {
+    if (lock_out == false) {
+      lock_out = true;
+      setTimeout(function () { startTimer(60); }, 1000);
+    }
   });
 
 
@@ -53,10 +53,14 @@ $(document).ready(function () {
 
       } else if (buffer_count - count == 2) {
         buffer_count--;
-        $("#counter").html("Ready");
+        if (team_blue) {
+          $("#counter").html("BLUE TEAM");
+        } else {
+          $("#counter").html("RED TEAM");
+        }
       } else if (buffer_count - count == 1) {
         buffer_count--;
-        $("#counter").html("Set!");
+        $("#counter").html("Get ready!");
       } else if (buffer_count - count == 0) {
         buffer_count--;
         $("#counter").html("Go!");
@@ -76,11 +80,11 @@ $(document).ready(function () {
     // Clear timer when a new card is clicked
     $("#end_turn").click(function () {
       // Prevent function from executing if card is already flipped
-    //   if (!$(this).hasClass("is-flipped") && lock_out == false ) {
-        if (lock_out == false){
-            clearInterval(timer);
-        }
-    //   }
+      //   if (!$(this).hasClass("is-flipped") && lock_out == false ) {
+      if (lock_out == false) {
+        clearInterval(timer);
+      }
+      //   }
     });
 
   }
@@ -97,26 +101,26 @@ $(document).ready(function () {
     }
     random_card = available_cards[Math.floor(Math.random() * available_cards.length)];
 
-      $(random_card).click();
-      $('#end_turn').click();
- }
+    $(random_card).click();
+    $('#end_turn').click();
+  }
 
   function checkWin(red_count, blue_count, black_count) {
     if (red_count == 5) {
-        setTimeout(function () { win("red") }, 900);
-      }
-      if (blue_count == 5) {
+      setTimeout(function () { win("red") }, 900);
+    }
+    if (blue_count == 5) {
+      setTimeout(function () { win("blue") }, 900);
+    }
+    if (black_count == 1) {
+      if (team_blue == false) {
         setTimeout(function () { win("blue") }, 900);
       }
-      if (black_count == 1) {
-        if (team_blue == false) {
-          setTimeout(function () { win("blue") }, 900);
-        }
-        if (team_blue == true) {
-          setTimeout(function () { win("red") }, 900);
-        }
+      if (team_blue == true) {
+        setTimeout(function () { win("red") }, 900);
       }
     }
+  }
 
 
   function win(color) {
@@ -137,25 +141,25 @@ $(document).ready(function () {
 
   function countCardColors(card_color) {
     card_color = card_color.toUpperCase();
-      if (card_color == 'RED') {
-        ++red_count;
-        if(team_blue){
-            $('#end_turn').click();
-        }
-      }
-      else if (card_color == 'BLUE') {
-        ++blue_count;
-        if(!team_blue){
-            $('#end_turn').click();
-        }
-      }
-      else if (card_color == 'BLACK') {
-        ++black_count;
-      }
-      else{
+    if (card_color == 'RED') {
+      ++red_count;
+      if (team_blue) {
         $('#end_turn').click();
       }
-}
+    }
+    else if (card_color == 'BLUE') {
+      ++blue_count;
+      if (!team_blue) {
+        $('#end_turn').click();
+      }
+    }
+    else if (card_color == 'BLACK') {
+      ++black_count;
+    }
+    else {
+      $('#end_turn').click();
+    }
+  }
 
   /***********************************/
 
