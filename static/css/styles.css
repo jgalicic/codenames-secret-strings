@@ -111,7 +111,12 @@ body {
 /*************************/
 /***** Top Nav Bar *******/
 /*************************/
-
+#spymaster_header {
+  position: relative;
+  top: 16px;
+  left: 4px;
+  font-size: 5vw;
+}
 #counter {
   position: relative;
   top: 16px;
@@ -251,7 +256,16 @@ h3.url {
   justify-content: center;
 }
 
-
+#end_turn {
+  border: 3px solid rgba(255,255,255,.8);
+  color: rgba(255,255,255,.8);
+  font-family: 'Lalezar', cursive;
+  background: rgba(0,0,0,.1);
+  font-size: 2vw;
+  letter-spacing: 3px;
+  margin-left: 20px;
+  padding: 2px 12px 0 12px;
+}
 
 /*************************/
 
@@ -295,7 +309,7 @@ h3.url {
   color: #333;
   text-align: center;
   font-weight: bold;
-  font-size: 4.5vw;
+  font-size: 3.8vw;
   height: 140px !important;
   background-color: rgb(245, 241, 235);
   border: 4px solid black;
@@ -410,6 +424,9 @@ h3.url {
   #setup_title{
     font-size: 12vw;
   }
+  #spymaster_header {
+    font-size: 8vw;
+  }
 }
 
 @media only screen and (max-width: 800px) {
@@ -446,9 +463,16 @@ h3.url {
     margin-top: -5px;
   }
 
-  .button_top_layer {
+  .button_top_layer,
+  #end_turn {
     justify-content: center;
     align-items: flex-end;
+  }
+
+  #end_turn {
+    position: relative;
+    top: 12px;
+    right: 10px;
   }
 
   .right_button_group {
