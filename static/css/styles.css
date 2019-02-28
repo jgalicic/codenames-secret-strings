@@ -236,6 +236,15 @@ h3.url {
   padding: 10px;
 }
 
+.button_top_layer button{
+  height: 2.5em;
+  color: white;
+  background-color: black;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
 .instruction_container {
   margin: 5px;
   display: flex;
@@ -245,6 +254,10 @@ h3.url {
 
 
 /*************************/
+
+.game_screen{
+  height: 100vh;
+}
 
 .board_container {
   display: flex;
@@ -382,12 +395,25 @@ h3.url {
   font-size: 3.5vw;
 }
 
+/* SPY GAME KEY PAGE */
+
+.contain_keyform {
+  text-align: center;
+}
+
+.contain_keyform h1 {
+  font-size: 2vw;
+}
+
 
 /* Media Queries */
 
 @media only screen and (max-width: 900px) {
   .board_container {
     height: 600px;
+  }
+  #setup_title{
+    font-size: 12vw;
   }
 }
 
@@ -438,5 +464,51 @@ h3.url {
 
   #index_title {
     font-size: 4em;
+  }
+
+  /* .instruction_container h2{
+    font-size: 7vw;
+  } */
+
+  .instruction_container h3{
+    font-size: 3.7vw;
+  }
+
+  #sub_title{
+    font-size: 7vw;
+  }
+  #i_title{
+    font-size: 12vw;
+  }
+}
+
+@media only screen and (max-width: 430px){
+  #counter {
+    font-size: 12.5vw;
+  }
+  #index_title {
+    font-size: 12.5vw;
+  }
+  h2 {
+    font-size: 1.5em;
+  }
+
+  .instruction_container h2{
+    font-size: 5.5vw;
+  }
+
+  .instruction_container h3{
+    font-size: 4vw;
+  }
+
+  #sub_title{
+    font-size: 7vw;
+  }
+  #setup_title{
+    font-size: 12vw;
+  }
+
+  .setup_container{
+    width: 95%;
   }
 }

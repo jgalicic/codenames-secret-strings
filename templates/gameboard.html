@@ -3,11 +3,11 @@
 {% block head%}
 {{ super() }}
 {% endblock %}
-{% block body %}
 
+{% block body %}
 <head>
-  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-  <script src="{{url_for('static', filename='js/script.js')}}" defer></script>
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="{{url_for('static', filename='js/script.js')}}" defer></script>
 </head>
 <div class="board_container">
   {% if color_id == 0 %}
@@ -28,7 +28,6 @@
   </div>
   {% endfor %}
 </div>
-
 
 
 {% endblock %}

@@ -7,26 +7,41 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Lalezar" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
   <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
   <title>Codenames</title>
 </head>
 
 <body>
-  <h1>Codenames: Secret Strings</h1>
-  <h3 id="spy">Spymaster Answer Key:</h3>
-  <form action="/spy" method="post" id="spy">
-    <label for="game_key">Enter game key here:</label>
-    <input type="text" name="game_key">
-    <input type="submit" value="SUBMIT">
-  </form>
-  {% with errors = get_flashed_messages(category_filter=['spy_error']) %}
-  {% if errors %}
-      {% for error in errors %}            <!-- loop through the messages -->
-        <p style="color:red;">{{error}}</p>                   <!-- display each message in a paragraph tag -->
-      {% endfor %}
-  {% endif %}
-  {% endwith %}
+    <div class="top_bar1">
+        <div class="top_bar2">
+          <div class="game_title">
+            <h1 id="counter">ENTER SPYMASTER</h1>
+          </div>
+          <div class="button_top_layer">
+            <div class="right_button_group">
+              <a href="/"><i class="fas fa-home"></i></a>
+              <a href="/instructions"><i class="far fa-question-circle"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+  <div class="contain_keyform">
+    <h3 id="spy">Spymaster Answer Key:</h3>
+    <form action="/spy" method="post" id="spy">
+      <label for="game_key">Enter game key here:</label>
+      <input type="text" name="game_key">
+      <input type="submit" value="SUBMIT">
+    </form>
+    {% with errors = get_flashed_messages(category_filter=['spy_error']) %}
+    {% if errors %}
+        {% for error in errors %}            <!-- loop through the messages -->
+          <p style="color:red;">{{error}}</p>                   <!-- display each message in a paragraph tag -->
+        {% endfor %}
+    {% endif %}
+    {% endwith %}
+  </div>
 </body>
 
 </html>
