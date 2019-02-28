@@ -241,6 +241,10 @@ h3.url {
   padding: 10px;
 }
 
+.button_top_layer i:hover {
+  color: white;
+}
+
 .button_top_layer button{
   height: 2.5em;
   color: white;
@@ -265,6 +269,12 @@ h3.url {
   letter-spacing: 3px;
   margin-left: 20px;
   padding: 2px 12px 0 12px;
+}
+
+#end_turn:hover {
+  color: white;
+  cursor: pointer;
+  border: 3px solid white;
 }
 
 /*************************/
