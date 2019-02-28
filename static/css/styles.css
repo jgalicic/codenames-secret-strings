@@ -280,12 +280,12 @@ h3.url {
 /*************************/
 
 
-
 .board_container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   height: 700px;
+  max-height: 70vh;
 }
 
 .scene {
@@ -431,9 +431,6 @@ h3.url {
 /* Media Queries */
 
 @media only screen and (max-width: 900px) {
-  .board_container {
-    height: 600px;
-  }
   #setup_title{
     font-size: 12vw;
   }
@@ -443,6 +440,9 @@ h3.url {
 }
 
 @media only screen and (max-width: 800px) {
+  .board_container {
+    max-height: 80vh;
+  }
   #index_title {
     font-size: 5em;
   }

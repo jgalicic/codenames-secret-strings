@@ -110,10 +110,10 @@ $(document).ready(function () {
       }
       if (black_count == 1) {
         if (team_blue == false) {
-          setTimeout(function () { win("blue") }, 500);
+          setTimeout(function () { win("blue") }, 900);
         }
         if (team_blue == true) {
-          setTimeout(function () { win("red") }, 500);
+          setTimeout(function () { win("red") }, 900);
         }
       }
     }
