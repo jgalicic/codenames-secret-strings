@@ -26,7 +26,7 @@ word_bank = ['JET', 'ALIEN', 'BOMB', 'SNOWMAN', 'TEACHER', 'DWARF', 'TRIP', 'SAT
              'FAIR', 'ALPS', 'CLUB', 'HORSE', 'CENTER', 'WASHER', 'GREECE', 'KIWI', 'POUND',
              'FIELD', 'ROUND', 'ROME', 'SLUG', 'HOOK', 'MOUNT', 'SCREEN', 'WORM', 'SINK',
              'PIRATE', 'CHICK', 'GAME', 'MASS', 'DOG', 'CROWN', 'VACUUM', 'FILM', 'SHOT',
-             'TOOTH', 'HOTEL', 'PANTS', 'QUEEN', 'SNOW', 'GLASS', 'NOTE', 'PASTER',
+             'TOOTH', 'HOTEL', 'PANTS', 'QUEEN', 'SNOW', 'GLASS', 'NOTE', 'PASTOR',
              'TURKEY', 'BILL', 'OLYMPUS', 'PIANO', 'BAT', 'ATLANTIS', 'BUTTON', 'CAT',
              'PLAY', 'WALL', 'CHECK', 'TRUNK', 'BEAR', 'GROUND', 'MISSLE', 'MINE', 'COLD',
-             'DINOSAUR', 'NINJA', 'SPOT']
+             'DINOSAUR', 'NINJA', 'SPOT', 'CHERRY', 'MELON']
