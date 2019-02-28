@@ -80,6 +80,12 @@ def index():
 def setup1():
     return render_template("setup1.html")
 
+# GET "/setup/2"
+@app.route("/setup/2")
+def setup2():
+    side_to_start = int(floor(random() * 2))
+    return render_template("setup2.html", side_to_start=side_to_start)
+
 # GET "/reset"
 @app.route('/reset')
 def reset():
@@ -168,18 +174,18 @@ def secret():
     else:
         return render_template('/spymaster.html')
 
-# GET "/gameboard"
-@app.route('/gameboard')
-def gameboard():
+# GET "/gameboard/<color_id>"
+@app.route('/gameboard/<color_id>')
+def gameboard(color_id):
     if 'bank' not in session:
         return redirect('/reset')
-    return render_template('gameboard.html', bank=session['bank'])
+    return render_template('gameboard.html', bank=session['bank'], color_id=int(color_id))
 
 # GET "/secret"
 @app.route('/secret')
 def spyboard():
     if 'bank' not in session:
-        return redirect('/spymaster')
+        return redirect('/spy')
     return render_template('secret.html', bank=session['bank'])
 
 

@@ -1,11 +1,16 @@
-var red_count = 0;
-var blue_count = 0;
-var black_count = 0;
-
-var team_blue = true;
-var lock_out = true;
-
 $(document).ready(function () {
+
+  var red_count = 0;
+  var blue_count = 0;
+  var black_count = 0;
+
+  var team_blue = true;
+  var lock_out = true;
+
+  if ($("#color_start").hasClass("blue_starts")) {
+    team_blue = false;
+  }
+
 
   var all_cards = $(".card_to_flip").toArray();
   var flipped_cards = [];
@@ -24,7 +29,7 @@ $(document).ready(function () {
       var card_color = $(this).find(".card_back").attr("class_hidden");
       countCardColors(card_color);
 
-      checkWin(red_count,blue_count,black_count);
+      checkWin(red_count, blue_count, black_count);
     }
   });
 
@@ -38,7 +43,7 @@ $(document).ready(function () {
 
   function startTimer(count) {
     //Team banner toggle
-    team_blue = !team_blue
+    team_blue = !team_blue;
 
     var buffer_count = count + 2;
     timer = setInterval(function () {
@@ -77,26 +82,26 @@ $(document).ready(function () {
         }
     //   }
     });
-    
+
   }
 
-/**********
-FUNCTIONS
-**********/
- function flipRandomCard(all_cards, flipped_cards){
+  /**********
+  FUNCTIONS
+  **********/
+  function flipRandomCard(all_cards, flipped_cards) {
     var available_cards = [];
     for (card in all_cards) {
-        if (!(flipped_cards.includes(all_cards[card]))) {
-          available_cards.push(all_cards[card]);
-        }
+      if (!(flipped_cards.includes(all_cards[card]))) {
+        available_cards.push(all_cards[card]);
       }
-      random_card = available_cards[Math.floor(Math.random() * available_cards.length)];
+    }
+    random_card = available_cards[Math.floor(Math.random() * available_cards.length)];
 
       $(random_card).click();
       $('#end_turn').click();
  }
 
- function checkWin(red_count, blue_count, black_count){
+  function checkWin(red_count, blue_count, black_count) {
     if (red_count == 5) {
         setTimeout(function () { win("red") }, 900);
       }
@@ -111,25 +116,26 @@ FUNCTIONS
           setTimeout(function () { win("red") }, 500);
         }
       }
- }
+    }
 
- function win(color) {
+
+  function win(color) {
     // $(".board_container").html("<h3 style='color: white;'> Team " + color + " won!</h3>");
-    window.location.replace('/win/'+ color);
+    window.location.replace('/win/' + color);
   }
 
-function teamBannerToggle(team_blue){
+  function teamBannerToggle(team_blue) {
     if (team_blue) {
-        $(".top_bar1").removeClass("red");
-        $(".top_bar1").addClass("blue");
+      $(".top_bar1").removeClass("red");
+      $(".top_bar1").addClass("blue");
     }
     else {
-        $(".top_bar1").removeClass("blue");
-        $(".top_bar1").addClass("red");
+      $(".top_bar1").removeClass("blue");
+      $(".top_bar1").addClass("red");
     }
   }
 
-function countCardColors(card_color){
+  function countCardColors(card_color) {
     card_color = card_color.toUpperCase();
       if (card_color == 'RED') {
         ++red_count;
