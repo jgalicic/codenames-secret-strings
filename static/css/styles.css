@@ -131,6 +131,11 @@ body {
   font-size: 2em;
 }
 
+.instruction_container p {
+  color: rgba(255,255,255,.9);
+  font-size: 1em;
+}
+
 /*************************/
 /***** Top Nav Bar *******/
 /*************************/
