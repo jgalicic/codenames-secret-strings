@@ -1,11 +1,28 @@
+var red_count = 0;
+var blue_count = 0;
+var black_count = 0;
+
+var team_blue = true;
+var lock_out = true;
+var pause = false;
+
+$('.fa-pause-circle').on('click', function() {
+    if (pause){
+        $(this).addClass('fa-pause-circle');
+        $(this).removeClass('fa-play-circle');
+        lock_out = false;
+        pause = false;
+    }
+    else{
+        $(this).addClass('fa-play-circle');
+        $(this).removeClass('fa-pause-circle');
+        pause = true;
+        lock_out = true;
+    }
+    });
+
+
 $(document).ready(function () {
-
-  var red_count = 0;
-  var blue_count = 0;
-  var black_count = 0;
-
-  var team_blue = true;
-  var lock_out = true;
 
   if ($("#color_start").hasClass("blue_starts")) {
     team_blue = false;
@@ -31,6 +48,23 @@ $(document).ready(function () {
 
       checkWin(red_count, blue_count, black_count);
     }
+
+
+$('.fa-pause-circle').off('click').on('click', function() {
+    if (pause){
+        $(this).addClass('fa-pause-circle');
+        $(this).removeClass('fa-play-circle');
+        lock_out = false;
+        pause = false;
+    }
+    else{
+        $(this).addClass('fa-play-circle');
+        $(this).removeClass('fa-pause-circle');
+        pause = true;
+        lock_out = true;
+    }
+    });
+
   });
 
   $("#end_turn").click(function () {
@@ -47,6 +81,7 @@ $(document).ready(function () {
 
     var buffer_count = count + 2;
     timer = setInterval(function () {
+    if (!pause){
       if (count == 0) {
         $("#counter").html(count);
         flipRandomCard(all_cards, flipped_cards);
@@ -75,6 +110,7 @@ $(document).ready(function () {
       }
 
       teamBannerToggle(team_blue);
+    }
     }, 1000);
 
     // Clear timer when a new card is clicked
