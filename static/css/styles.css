@@ -123,6 +123,10 @@ body {
   top: 25px;
 }
 
+#h3_directions {
+  max-width: 780px;
+}
+
 #setup_subtitle {
   font-size: 2em;
 }
