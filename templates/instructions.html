@@ -5,11 +5,53 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css?family=Lalezar" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+  <title>Codenames</title>
 </head>
 
-<body>
-  <h1>instructions</h1>
+<body class="index_page1 setup_page1">
+  <div class="index_page2 setup_page2">
+    <div class="setup_container">
+      <h1 id="setup_title">Rules</h1>
+      <br>
+
+      <div class="instruction_container">
+        <div>
+          <p><strong>Spymaster rules</strong></p>
+          <p>Each turn, the spymaster may only give a SINGLE WORD clue to their team followed by the number of cards
+            they expect
+            their
+            team to guess. For example, if the spymaster wants their team to guess two cards saying "WALL" and "CHINA",
+            the spymaster
+            might say "panda, two".</p>
+          <p>The spymaster may not give any other clues or body signals to get their team to guess their team's hidden
+            words and may not give hints or talk when it is not their turn.
+          </p>
+          <p><strong>Playing a turn</strong></p>
+          <p>To make a guess, a team member must click a card on the board. If they reveal a card with their team's
+            color
+            (red or blue), they may go again. If they reveal a brown card or a card with the other team's color, it
+            becomes the other
+            team's turn.</p>
+          <p><strong>Ending a turn</strong></p>
+          <p>Once your
+            team wishes to end its turn, click the "END TURN" button. If time runs out during your turn,
+            a card is randomly selected and flipped over and it becomes the other team's turn. Beware - if the black
+            assassin card is turned over during your team's turn, the other team automatically wins.</p>
+          <p><strong>Ending the game</strong></p>
+          <p>The game ends when all the cards for one team have been turned over OR when the assassin card has been
+            revealed.</p>
+        </div>
+
+      </div>
+      <div class="index_buttons" id="setup_buttons">
+        <a href="/">HOME</a>
+      </div>
+    </div>
+  </div>
 </body>
 
 </html>

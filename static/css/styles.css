@@ -115,9 +115,25 @@ body {
   font-family: 'Lalezar', cursive;
   text-align: center;
   padding-top: 10px;
-  font-size: 8em;
+  font-size: 7em;
   letter-spacing: 8px;
-  text-shadow: 2px 2px 35px rgba(0,0,0,.7)
+  text-shadow: 2px 2px 35px rgba(0,0,0,.7);
+  line-height: 80px;
+  position: relative;
+  top: 25px;
+}
+
+#h3_directions {
+  max-width: 780px;
+}
+
+#setup_subtitle {
+  font-size: 2em;
+}
+
+.instruction_container p {
+  color: rgba(255,255,255,.9);
+  font-size: 1em;
 }
 
 /*************************/
@@ -448,6 +464,9 @@ h3.url {
   }
   #spymaster_header {
     font-size: 8vw;
+  }
+  #setup_subtitle {
+    font-size: 1.4em;
   }
 }
 
