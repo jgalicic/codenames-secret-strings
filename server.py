@@ -7,18 +7,12 @@ import time
 from wordbank import word_bank
 from lovebank import love_bank
 
-
-# Justin just added this comment
-# Now this
-
 app = Flask(__name__)
 app.secret_key = "shh"
 
 ####################################
 ########### Functions ##############
 ####################################
-
-# shuffle function
 
 
 def shuffle(arr):
@@ -27,7 +21,6 @@ def shuffle(arr):
         i = int(floor(random() * amnt_to_shuffle))
         amnt_to_shuffle -= 1
         arr[i], arr[amnt_to_shuffle] = arr[amnt_to_shuffle], arr[i]
-    print(arr)
     return arr
 
 
@@ -39,11 +32,11 @@ def board_create(bank_id):
 
     # clear gameboard
     colored_bank = []
-    colored_bank2 = []
 
     # shuffle card_bank
     color_list = shuffle(card_bank)
 
+    # decide which word bank to use
     if bank_id == 1:
         shuffled_words = shuffle(word_bank)
         session['bank_id'] = 1
@@ -59,19 +52,21 @@ def board_create(bank_id):
 
     return colored_bank
 
-# Generate friendly key function
+# generate friendly key function
 
 
-def friendly_key_gen(ugly_key):
+def friendly_key_gen():
 
-    alpha = ['c', 'o', 'd', 'e', 'n', 'a', 'm', 'x', 's', '-']
+    keycodebank = [['S', 'T', 'U', 'V', 'W', 'X', 'Y'],
+                   ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
+                   ['2', '3', '4', '5', '6', '7', '8'],
+                   ['J', 'K', 'L', 'M', 'N', 'P', 'Q']]
 
-    code = ugly_key.replace(' ', '').replace('-', '').replace(':', '')
     alpha_code = ''
 
-    for i in range(6, len(code)):
-        num = int(code[i])
-        alpha_code += alpha[num]
+    for x in keycodebank:
+        randomdigit = int(floor(random() * len(x)))
+        alpha_code += x[randomdigit]
 
     return alpha_code
 
@@ -81,16 +76,25 @@ def friendly_key_gen(ugly_key):
 
 
 # GET "/"
+# Landing page
 @app.route("/")
 def index():
     return render_template("index.html")
 
+# GET "/instructions"
+@app.route('/instructions')
+def instructions():
+
+    return render_template('instructions.html')
+
 # GET "/setup/1"
+# Instructions for spymasters
 @app.route("/setup/1")
 def setup1():
     return render_template("setup1.html")
 
 # GET "/setup/2"
+# Randomly displays which team will start
 @app.route("/setup/2")
 def setup2():
     side_to_start = int(floor(random() * 2))
@@ -100,15 +104,21 @@ def setup2():
 @app.route('/reset/<bank_id>')
 def reset(bank_id):
 
-    if 'game_id' in session:
-        data = {
-            'game_id': session['game_id']
-        }
+  # The TRUNCATE queries below remove all table information each time the game starts.
+  # This may cause problems when multiple games are played at the same time.
 
-        mysql = connectToMySQL('codenames_db')
-        query = "DELETE FROM cards WHERE game_id = %(game_id)s;"
-        game_delete = mysql.query_db(query, data)
-        print(game_delete, "did it delete?")
+    # remove previous entries from database
+    mysql = connectToMySQL('codenames_db')
+    query = "TRUNCATE TABLE words;"
+    db_delete_words = mysql.query_db(query)  # this is required
+
+    mysql = connectToMySQL('codenames_db')
+    query = "TRUNCATE TABLE colors;"
+    db_delete_colors = mysql.query_db(query)  # this is required
+
+    mysql = connectToMySQL('codenames_db')
+    query = "TRUNCATE TABLE cards;"
+    db_delete_cards = mysql.query_db(query)  # this is required
 
     data = {
         'card_info': board_create(int(bank_id))
@@ -117,8 +127,7 @@ def reset(bank_id):
 
     game_id = time.strftime('%Y-%m-%d %H:%M:%S')
 
-    friendly_key = friendly_key_gen(game_id)
-    print(friendly_key)
+    friendly_key = friendly_key_gen()
 
     for card in data['card_info']:
 
@@ -128,6 +137,8 @@ def reset(bank_id):
 
         mysql = connectToMySQL('codenames_db')
         query = "INSERT INTO colors (color) VALUES (%(color)s);"
+
+        # database call
         color_id = mysql.query_db(query, data)
 
         data = {
@@ -146,8 +157,9 @@ def reset(bank_id):
         }
 
         mysql = connectToMySQL('codenames_db')
-        query = "INSERT INTO cards (color_id, word_id, game_id, friendly_key) VALUES (%(color_id)s, %(word_id)s, %(game_id)s, %(friendly_key)s);"
-        card_id = mysql.query_db(query, data)
+        query = ("INSERT INTO cards (color_id, word_id, game_id, friendly_key) "
+                 "VALUES (%(color_id)s, %(word_id)s, %(game_id)s, %(friendly_key)s); ")
+        card_id = mysql.query_db(query, data)  # this is required
 
     session['game_id'] = game_id
     session['friendly_key'] = friendly_key
@@ -165,11 +177,11 @@ def secret():
         }
 
         mysql = connectToMySQL('codenames_db')
-        query = "SELECT colors.color AS 'color', words.word AS 'word' FROM cards JOIN colors ON colors.id = cards.color_id JOIN words ON words.id = cards.word_id WHERE friendly_key = %(game_key)s;"
+        query = ("SELECT colors.color AS 'color', words.word AS 'word' "
+                 "FROM cards JOIN colors ON colors.id = cards.color_id "
+                 "JOIN words ON words.id = cards.word_id "
+                 "WHERE friendly_key = %(game_key)s; ")
         game_info = mysql.query_db(query, data)
-        print(game_info)
-        print('VS')
-        # print(session['bank'])
 
         try:
             # testing if anything is inside "game_info", in otherwords, was the query successful
@@ -197,12 +209,6 @@ def spyboard():
     if 'bank' not in session:
         return redirect('/spy')
     return render_template('secret.html', bank=session['bank'])
-
-# GET "/instructions"
-@app.route('/instructions')
-def instructions():
-
-    return render_template('instructions.html')
 
 
 @app.route('/win/<team>')
